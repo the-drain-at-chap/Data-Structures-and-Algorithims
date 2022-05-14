@@ -1,3 +1,6 @@
+/* Initializes the constructors, destructor, functions, and variables of the Sort class. Sort class will have the three sorting methods as functions
+   and will include the simulate function to execute what the assignment wants in main.
+*/
 #include <iostream>
 using namespace std;
 
