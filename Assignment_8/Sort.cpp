@@ -1,13 +1,25 @@
+/* Implementation of the constructors, destructor, and functions of the Sort class. Functions include all the sorting methods and the simulation function that runs in
+   main for the program to actually work.
+*/
 #include "Sort.h"
 #include <iostream>
 #include <fstream>
 #include <chrono>
 using namespace std;
 using namespace std::chrono;
+
+//default constructor
 Sort::Sort(){}
 
+//destructor
 Sort::~Sort(){};
 
+/*
+Function name: merge
+What it does: used to complete the runMergeSort function
+@param: double anArray[], int lower, int middle, int upper
+@return:
+*/
 void Sort::merge(double anArray[], int lower, int middle, int upper){
   int i;
   int j;
@@ -38,6 +50,13 @@ void Sort::merge(double anArray[], int lower, int middle, int upper){
     anArray[k++] = right[j++];
   }
 }
+
+/*
+Function name: runMergeSort
+What it does: executes the merge sort algorithim on the unsorted array
+@param: double anArray[], int lower, int upper
+@return: none
+*/
 void Sort::runMergeSort(double anArray[], int lower, int upper){
   if(lower >= upper){
     return;
@@ -47,6 +66,12 @@ void Sort::runMergeSort(double anArray[], int lower, int upper){
   merge(anArray, lower, (lower + upper) / 2, upper);
 }
 
+/*
+Function name: runBubbleSort
+What it does: executes the bubble sort algorithim on the unsorted array
+@param: double anArray[], int size
+@return: none
+*/
 void Sort::runBubbleSort(double anArray[], int size){
   for(int i = 0; i < size - 1; i++){
     for(int j = 0; j < size - i - 1; j++){
@@ -59,6 +84,12 @@ void Sort::runBubbleSort(double anArray[], int size){
   }
 }
 
+/*
+Function name: runSelectionSort
+What it does: executes the selection sort algorithim on the unsorted array
+@param: double anArray[], int size
+@return: none
+*/
 void Sort::runSelectionSort(double anArray[], int size){
   int i;
   int j;
@@ -78,6 +109,12 @@ void Sort::runSelectionSort(double anArray[], int size){
   }
 }
 
+/*
+Function name: simulate
+What it does: used to simulate the entire program that meets the assignment's requirements
+@param: string s
+@return: none
+*/
 void Sort::simulate(string s){
   ifstream inputStream;
   int length;
